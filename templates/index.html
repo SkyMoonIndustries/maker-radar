@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maker Radar</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <h1><i class="fas fa-satellite-dish"></i> Maker Radar</h1>
+        <p>Aradığın malzemeyi en uygun fiyata, gerçek e-ticaret deneyimiyle bul.</p>
+    </header>
+
+    <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('searchTab', this)"><i class="fas fa-search"></i> Komponent Ara</button>
+        <button class="tab-btn" onclick="switchTab('cartTab', this)"><i class="fas fa-clipboard-list"></i> Proje Tezgahım (<span id="cartCount">0</span>)</button>
+    </div>
+
+    <div id="searchTab" class="tab-content active">
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Ne arıyorsun? (Örn: ESP32 WROOM)" value="ESP32">
+            <button onclick="searchProducts()"><i class="fas fa-search"></i> Ara</button>
+        </div>
+        
+        <div id="loading" class="hidden">
+            <i class="fas fa-spinner fa-spin"></i> Tedarikçilerin raflarına bakılıyor...
+        </div>
+
+        <div id="resultsGrid" class="results-grid">
+            </div>
+    </div>
+
+    <div id="cartTab" class="tab-content">
+        <div id="emptyCart" class="info-box">
+            Tezgahın şu an boş. Arama sekmesinden projene uygun malzemeleri ekleyebilirsin.
+        </div>
+
+        <div id="cartContent" class="hidden">
+            <div class="cart-header">
+                <h3><i class="fas fa-tools"></i> Malzeme Listesi (BOM)</h3>
+                <button onclick="downloadCSV()" class="btn-secondary"><i class="fas fa-file-excel"></i> Excel (CSV) İndir</button>
+            </div>
+            
+            <table class="cart-table">
+                <thead>
+                    <tr>
+                        <th>Hesapla</th>
+                        <th>Fotoğraf</th>
+                        <th>Ürün</th>
+                        <th>Satıcı</th>
+                        <th>Fiyat</th>
+                        <th>Adet</th>
+                        <th>İşlem</th>
+                    </tr>
+                </thead>
+                <tbody id="cartTableBody">
+                    </tbody>
+            </table>
+
+            <div class="summary-section">
+                <h3><i class="fas fa-calculator"></i> Sepet Optimizasyonu ve Toplam Maliyet</h3>
+                <div id="shippingCards" class="shipping-grid">
+                    </div>
+                <div class="grand-total">
+                    <h2>🏆 Proje Maliyeti: <span id="grandTotal">0.00</span> TL</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
