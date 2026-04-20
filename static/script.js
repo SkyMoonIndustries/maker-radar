@@ -15,6 +15,13 @@ let cart = JSON.parse(localStorage.getItem('makerRadarCart')) || [];
 // Sayfa her yüklendiğinde sepet arayüzünü otomatik olarak çiz! (Sayfa yenilendiğinde boş gelmesini engeller)
 window.onload = () => {
     updateCartUI();
+    
+    // Arama Çubuğu için Enter Tuşu Dinleyicisi
+    document.getElementById('searchInput').addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            searchProducts();
+        }
+    });
 };
 
 // Sepette en ufak bir değişiklik olduğunda bunu tarayıcının harddiskine (kalıcı olarak) kaydeder.
