@@ -35,11 +35,5 @@ Maker-Radar is designed as a productivity utility that acts as a bridge between 
 * **Traffic Referral:** The tool functions as an organic lead generator, directing high-intent developer traffic straight to the respective vendor checkout pages.
 * **Polite Rate Limiting:** Requests are structurally optimized to ensure absolutely zero unnecessary server load or performance overhead on target vendor infrastructures.
 
-## ⚙️ Tech Stack
-* **Backend/Frontend:** (Kullandığın teknolojiyi buraya yaz, örn: Python/Flask, Node.js/Express or Python/Django)
-* **Web Scraping & Parsing:** (Örn: BeautifulSoup4, Playwright or Scrapy)
-* **Data Export:** (Örn: Pandas, OpenPyXL or ExcelJS)
-* **Hosting:** Render Cloud Platform
-
 ---
 *Developed to keep the engineering flow state uninterrupted by tedious component shopping.*
